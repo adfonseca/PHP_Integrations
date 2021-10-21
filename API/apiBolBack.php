@@ -8,10 +8,7 @@ error_reporting(E_ALL);
 require __DIR__ . '/../config.php';
 
 
- //$date = new DateTime();
- //$data_atual = $date->format(DateTime::RFC3339_EXTENDED);
-
-  $date_of_expiration = date('Y-m-d\TH:i:s.vP', strtotime('+2 days'));
+$date_of_expiration = date('Y-m-d\TH:i:s.vP', strtotime('+2 days'));
 
 
  $payment = new MercadoPago\Payment();
@@ -19,7 +16,6 @@ require __DIR__ . '/../config.php';
  $payment->transaction_amount = ($_POST["transaction_amount"]);
  $payment->description = "Title of what you are paying for";
  $payment->payment_method_id = "bolbradesco";
- //$payment->application_fee = 2.56;
  $payment->payer = array(
      "email" => ($_POST["email"]),
      "first_name" => ($_POST["first_name"]),
